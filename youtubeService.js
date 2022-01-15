@@ -285,13 +285,13 @@ youtubeService.interpret = async (message, debug=false, responseURL=null) => {
             "itemName": "Glass of Water",
             "itemPrice": 1000,
             "itemBoughtMessage": `Hey ${message.twitch ? "@kohfye" : "@Kohfye"}, have a glass of water, courtesy of @USERNAME!`
-        },
+        }/*,
         "star glasses":
         {
             "itemName": "Star Glasses",
             "itemPrice": 0,
             "itemBoughtMessage": `${message.twitch ? "@kohfye" : "@Kohfye"}, @USERNAME bought some star glasses for you to wear!`
-        },
+        }*/,
         "coffee" : 
         {
             "itemName": "Mug of Coffee",
