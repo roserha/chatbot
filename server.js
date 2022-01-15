@@ -98,7 +98,8 @@ server.get("/turn-off", (req, res) => {
 
 // POST for sending custom messages
 server.post("/send-message", (req, res) => {
-    if (req.ip != process.env.AUTHORIZED_IP_01 && req.ip != process.env.AUTHORIZED_IP_02) 
+    if ((req.socket.remoteAddress != process.env.AUTHORIZED_IP_01 && req.socket.remoteAddress != process.env.AUTHORIZED_IP_02) && 
+        (req.headers['x-forwarded-for'] != process.env.AUTHORIZED_IP_01 && req.headers['x-forwarded-for'] != process.env.AUTHORIZED_IP_02))
     {
         console.log(`user ip is: ${req.ip}`)
         return;
@@ -124,7 +125,8 @@ server.post("/send-message", (req, res) => {
 
 // POST for debugging commands without using YouTube data
 server.post("/debug-cmds", (req, res) => {
-    if (req.ip != process.env.AUTHORIZED_IP_01 && req.ip != process.env.AUTHORIZED_IP_02) 
+    if ((req.socket.remoteAddress != process.env.AUTHORIZED_IP_01 && req.socket.remoteAddress != process.env.AUTHORIZED_IP_02) && 
+        (req.headers['x-forwarded-for'] != process.env.AUTHORIZED_IP_01 && req.headers['x-forwarded-for'] != process.env.AUTHORIZED_IP_02))
     {
         console.log(`user ip is: ${req.ip}`)
         return;
@@ -196,7 +198,8 @@ server.get("/tts", (req, res) => {
 });
 
 server.get("/launchtts", (req, res) => {
-    if (req.ip != process.env.AUTHORIZED_IP_01 && req.ip != process.env.AUTHORIZED_IP_02) 
+    if ((req.socket.remoteAddress != process.env.AUTHORIZED_IP_01 && req.socket.remoteAddress != process.env.AUTHORIZED_IP_02) && 
+        (req.headers['x-forwarded-for'] != process.env.AUTHORIZED_IP_01 && req.headers['x-forwarded-for'] != process.env.AUTHORIZED_IP_02))
     {
         console.log(`user ip is: ${req.ip}`)
         return;
