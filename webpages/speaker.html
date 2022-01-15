@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Speaker</title>
+    </head>
+    <body>
+        <p id="demo"></p>
+        <p id="status"></p>
+        <button onclick="beginRoutine()" id="clickButton">Begin Routine</button>
+        <button onclick='testTTS(`Some Super Long Display Name said: "hey chat, i like waffles. wbu, ricky?"`)' id="clickButton">Test TTS</button>
+        <button onclick="cancelQueue()">EMERGENCY STOP</button> <br>
+        <h1 id="ttsAuthor"></h1>
+        <p1 id="ttsMsg"></h1>
+        <script>
+            let receivedData = [];
+            var currentUtterance;
+            var willSpeak = false;
+            var speakTimeout;
+            var utteranceTimeout;
+            let nextInterval = 0;
+
+            
+            let utteranceVoice = null;
+            
+
+            window.speechSynthesis.onvoiceschanged = function loadThings(){
+                // document.getElementById('clickButton').click();
+                // document.elementFromPoint(8, 8).click();
+                document.getElementById("demo").innerText = 'speechSynthesis' in window ? "Yayy! We have TTS! 🎉" : "No TTS here 😢";
+                if(utteranceVoice == null)
+                {
+                    let utteranceVoices = window.speechSynthesis.getVoices();
+                    let voices = utteranceVoices[0];
+                    console.log(utteranceVoices);
+                    for(i in utteranceVoices)
+                    {
+                        console.log(i);
+                        voice = utteranceVoices[i];
+                        console.log(voice);
+                        // if(voice.voiceURI == "Microsoft Clara Online (Natural) - English (Canada)")
+                        if(voice.voiceURI == "Microsoft Aria Online (Natural) - English (United States)" || voice.voiceURI == "Google US English")
+                        // if(voice.voiceURI == "Microsoft Guy Online (Natural) - English (United States)")
+                        {
+                            utteranceVoice = voice;
+                        }
+                    }
+                }
+            }
+
+            // setTimeout(loadThings, 1000);
+
+            function getData()
+            {
+                fetch('/tts').then((response) => {
+                    response.json().then((data) => {
+                        if('speechSynthesis' in window && data.length > 0)
+                        {
+                            data.forEach(element => {
+                                receivedData.push(element);
+                            });
+                        }
+                        
+                        console.log(receivedData.length);
+                    });            
+                });
+            }
+
+            function processData()
+            {
+                if(!speechSynthesis.speaking && !willSpeak)
+                {
+                    if(receivedData.length > 0)
+                    {
+                        currentUtterance = receivedData[0];
+                        receivedData.shift();
+                        willSpeak = true;
+                        speakTimeout = setTimeout(speak, nextInterval);
+                        document.getElementById("status").innerText = `Will speak soon! (${(nextInterval/1000)+1} sec${(nextInterval/1000)+1 != 1 ? "s" : ""})`;
+                    }
+                    if(receivedData.length == 0) { document.getElementById("status").innerText = 'Not speaking.';  console.log("Not speaking?");}
+                }
+                if(speechSynthesis.speaking)
+                {
+                    nextInterval = receivedData.length > 0 ? 5000 : 0;
+                }
+            }
+
+            function speak()
+            {
+                let utterance = new SpeechSynthesisUtterance(`${currentUtterance.displayName} said "${currentUtterance.message}".`);
+                utterance.voice = utteranceVoice;//speechSynthesis.getVoices()[utteranceVoice];
+                utterance.lang = 'en-US';
+                utterance.rate = 0.85;
+
+                utteranceTimeout = setTimeout(() => { speechSynthesis.speak(utterance); document.getElementById("status").innerText = 'Speaking!'; willSpeak = false; console.log("Speaking?");}, 1000);
+            }
+
+            function testTTS(audio)
+            {
+                let utterance = new SpeechSynthesisUtterance(audio);
+                utterance.voice = utteranceVoice;//speechSynthesis.getVoices()[utteranceVoice];
+                utterance.lang = 'en-US';
+                utterance.rate = 1;
+
+                speechSynthesis.speak(utterance);
+            }
+
+            function beginRoutine()
+            {
+                testTTS("Routine starting!");
+                console.log("Routine starting!")
+                document.getElementById("status").innerText = 'Routine starting!';
+                setInterval(getData, 1000);
+                setInterval(processData, 0);
+            }
+
+            function cancelQueue()
+            {
+                speechSynthesis.cancel();
+                receivedData = [];
+                currentUtterance = null;
+                clearTimeout(speakTimeout);
+                clearTimeout(utteranceTimeout);
+            }
+        </script>
+    </body>
+</html>

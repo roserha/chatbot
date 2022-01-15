@@ -1,0 +1,90 @@
+                /*// Mug transfering (Confirmation required)
+                case "transfermugs":
+                    
+                    let transferRaw = messageContent.substring(messagePrefix.length).toLowerCase().split(" ")[1];
+                    
+                    if (transferRaw == "" || !transferRaw)
+                    {
+                        responseContent = `@${message.authorDetails.displayName}, you need to enter a valid transfer quantity!`;
+                        break;
+                    }
+
+                    let transferAmount = parseInt(transferRaw);
+
+                    if(transferAmount <= 0)
+                    {
+                        responseContent = `@${message.authorDetails.displayName}, how would I go about transfering ${ transferAmount == 0 ? "nothing?" : "a negative amount of Mugs? How would that even work?"}`;
+                        break;
+                    }
+
+                    let transferUserDisplayName = messageContent.substring(messagePrefix.length + messageCommand.length + 1 + transferRaw.length + 1);
+                    
+                    if (transferUserDisplayName == "" || !transferUserDisplayName)
+                    {
+                        responseContent = `@${message.authorDetails.displayName}, you need to enter a valid username to transfer your Mugs to!`;
+                        break;
+                    }
+                    if (transferUserDisplayName.toLowerCase() == message.authorDetails.displayName.toLowerCase())
+                    {
+                        responseContent = `@${message.authorDetails.displayName}, you can't transfer Mugs to yourself!`;
+                        break;
+                    }
+
+                    // CHECK IF TRANSFER IS POSSIBLE
+                    // (Check if there's enough money)
+                    let moneyArray = { money: -1 };
+
+                    await rickyDatabase.returnMoney(message, moneyArray);
+
+                    if(moneyArray.money != -1)
+                    {
+                        if(moneyArray.money < transferAmount)
+                        {
+                            responseContent = `@${message.authorDetails.displayName}, you don't have enough Mugs for that...`;
+                            break;
+                        }
+                    }
+                    else
+                    {
+                        responseContent = `I'm sorry @${message.authorDetails.displayName}, but an error occurred. Could you try this again later?`;
+                        break;
+                    }
+                    // (Check if the user to transfer to exists)
+                    let existsDict = { value: -1 };
+
+                    await rickyDatabase.doesUserExist(transferUserDisplayName, existsDict);
+
+                    if(existsDict.value != -1)
+                    {
+                        if(existsDict.value == 0)
+                        {
+                            responseContent = `Sorry @${message.authorDetails.displayName}. I couldn't find this user. Did you forget to capitalize some letters, or to include spaces? If not, have they sent a message to the chat already?`;
+                            break;
+                        }
+                    }
+                    else
+                    {
+                        responseContent = `I'm sorry @${message.authorDetails.displayName}, but an error occurred. Could you try this again later?`;
+                        break;
+                    }
+
+                    unconfimerdTransfers[message.authorDetails.channelId] = 
+                    {
+                        amount: transferAmount,
+                        transferTo: transferUserDisplayName
+                    };
+
+                    responseContent = `@${message.authorDetails.displayName}, everything's set up! Could you type "!confirmtransfer" to confirm it? Thanks!`;
+                    break;
+
+                case "confirmtransfer":
+                    if(!unconfimerdTransfers[message.authorDetails.channelId])
+                    {
+                        responseContent = `@${message.authorDetails.displayName}, you don't have any transfers to confirm!`;
+                        break;
+                    }
+                    else
+                    {
+
+                    }
+                    break;*/

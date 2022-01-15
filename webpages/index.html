@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>RickyHBot 🤖 - yt edition</title>
+    </head>
+    <link href="https://fonts.googleapis.com/css?family=Share%20Tech%20Mono" rel="stylesheet">
+    <style>
+        body
+        {
+            font-family: "Share Tech Mono";
+            text-align: center;
+            background-color: #242424;
+            color: #EEE;
+        }
+        button
+        {
+            font-family: "Share Tech Mono";
+        }
+        input
+        {
+            font-family: "Share Tech Mono";
+        }
+
+        @keyframes waves {
+          0% {top: -8px;}
+          50% {top: 8px;}
+          100% {top: -8px;}
+        }
+
+        .title
+        {
+            font-size: 400%;
+            text-shadow: 4px 4px #FFFFFF47;
+            animation-name: waves;
+            animation-duration: 6s;
+            animation-iteration-count: infinite;
+            animation-timing-function: cubic-bezier(0.65, 0.05, 0.36, 1);
+            position: absolute;
+            width: 100%;
+            top: -8px;
+        }
+
+        .fancybutton {
+            background-color: #4172ca; /* Aquamarine */
+            border: none;
+            color: #E0DED9;
+            padding: 15px 32px;
+            text-align: center;
+            display: inline-block;
+            font-size: 16px;
+            border-radius: 5px
+        }
+        .fancybutton:hover, .fancybutton:focus {
+            background-color: #789ee4;
+            color: rgb(39, 39, 39);
+        }
+
+        .fancybuttonYT {
+            background-color: #ca414c; /* Aquamarine */
+            border: none;
+            color: #E0DED9;
+            padding: 15px 32px;
+            text-align: center;
+            display: inline-block;
+            font-size: 16px;
+            border-radius: 5px
+        }
+        .fancybuttonYT:hover, .fancybuttonYT:focus {
+            background-color: #e47878;
+            color: rgb(39, 39, 39);
+        }
+        .fancybuttonYT:disabled
+        {
+            background-color: #aa5f5f;
+            color: #E0DED9;
+        }
+
+        .fancybuttonTW {
+            background-color: #9841ca; /* Aquamarine */
+            border: none;
+            color: #E0DED9;
+            padding: 15px 32px;
+            text-align: center;
+            display: inline-block;
+            font-size: 16px;
+            border-radius: 5px
+        }
+        .fancybuttonTW:hover, .fancybuttonTW:focus {
+            background-color: #9578e4;
+            color: rgb(39, 39, 39);
+        }
+        .fancybuttonTW:disabled
+        {
+            background-color: #614e97;
+            color: #E0DED9;
+        }
+
+        .fancyeditbox
+        {
+            box-shadow:#00000044 0px 0px 6px inset;
+            border: none;
+            border-radius: 4px;
+            padding: 15px 8px;
+            width: 250px;
+            background-color: #3e3d32;
+            color: #D9D8E0
+        }
+    </style>
+    <body>
+        <h1 class="title"><a href="/" style="text-decoration: none; color:white;">RickyHBot 🤖</a></h1>
+        <div style="font-size: 200%; width: 100%; position: absolute; line-height: 100%; left:0; top:25vh; text-shadow: 3px 3px 0px #ffffff1f;">
+            <p>Welcome to RickyHBot's house! Have some coffee! ☕</p> <br>
+            <!-- <a href="/authorize"> -->
+                <button onclick="location.href='/authorize'" class="fancybuttonYT" id="logbtnyt"> Activate RickyHBot on Youtube </button>
+                <button onclick="location.href='/twitch-activate'" class="fancybuttonTW" id="logbtntw"> Activate RickyHBot on Twitch </button>
+            <!-- </a> <br> --> <br> <br>
+            <!-- <a href="/find-active-chat">
+                <button> Get Ricky Horizon's Active Chat </button>
+            </a> <br>
+            <a href="/authorize-rhb">
+                <button> Authorize <b> rickyhbot </b> </button>
+            </a> <br> -->
+            <!-- <a href="/track-chat"> -->
+                <button onclick="location.href='/track-chat'" class="fancybutton"> Track Ricky Horizon's Chat </button>
+            <!-- </a> -->
+            <!-- <a href="/untrack-chat"> -->
+                <button onclick="location.href='/untrack-chat'" class="fancybutton"> Untrack Ricky Horizon's Chat </button>
+                <!-- </a> <br> --> <br> <br>
+                <form method="POST" action="/send-message" style="font-size: 50%">
+                    Manually send message: <input type="text" name="message" class="fancyeditbox" />
+                    <input type="submit" class="fancybuttonYT" value="Send on YouTube" name="youtube"/>
+                    <input type="submit" class="fancybuttonTW" value="Send on Twitch"  name="twitch"/>
+                    <input type="submit" class="fancybutton" value="Send on Both"  name="both"/>
+                </form>
+                <!-- </a> <br> --> <br>
+                <form method="POST" action="/debug-cmds" style="font-size: 50%">
+                    Message Simulator: <input type="text" name="message" class="fancyeditbox" maxlength="200"/>
+                    <!-- <input type="submit" class="fancybutton"/> -->
+                    <input type="submit" class="fancybuttonYT" value="Simulate YouTube" name="youtube"/>
+                    <input type="submit" class="fancybuttonTW" value="Simulate Twitch"  name="twitch"/>
+                </form>
+                <br>
+                <button onclick="location.href='/launchtts'" class="fancybutton"> Open TTS Interface </button>
+            <p style="color: #4172ca" id="bot-response"></p>
+        </div>
+        <script>
+            var url = window.location.href;
+            if(url.includes("?"))
+            {
+                var params = url.substring(url.indexOf("?")+1).split("&");
+                params.forEach(element => {
+                    let elements = element.split("=");
+                    if (elements[0] == "bot-response")
+                    {
+                        document.getElementById("bot-response").innerText = decodeURIComponent(elements[1]);
+                    }
+                });
+            }
+
+            function updateButtons()
+            {
+                fetch("/botstatus").then((res) => {
+                    res.json().then((data) => {
+                        if(data.twitch == "active") 
+                        { 
+                            var btn = document.getElementById("logbtntw");
+                            btn.disabled = true;
+                            btn.innerText = "Logged onto Twitch!"
+                        }
+                    });
+                });
+            }
+            updateButtons();
+            setInterval(updateButtons, 1000);
+        </script>
+    </body>
+</html>

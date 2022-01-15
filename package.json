@@ -1,0 +1,22 @@
+{
+  "name": "env-rickyhbot-yt",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "-": "0.0.1",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "googleapis": "^66.0.0",
+    "mongodb": "^3.6.3",
+    "save": "^2.4.0",
+    "tmi.js": "^1.7.1"
+  }
+}

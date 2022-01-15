@@ -1,0 +1,19 @@
+{
+    "transferInfo":
+    {
+        "transferAmount": "",
+        "transferTime": ""
+    },
+    "payerInfo":
+    {
+        "payerId": "",
+        "moneyBefore": 0,
+        "moneyAfter": 0
+    },
+    "payeeInfo":
+    {
+        "payeeId": "",
+        "moneyBefore": 0,
+        "moneyAfter": 0
+    }
+}

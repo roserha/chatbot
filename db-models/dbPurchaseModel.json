@@ -1,0 +1,19 @@
+{
+    "messageInfo": 
+    {
+        "messageContent": "",
+        "messageSentTime": ""
+    },
+    "purchaseInfo":
+    {
+        "itemPurchased": "",
+        "itemCost": 0,
+        "purchaseTime": ""
+    },
+    "buyerInfo":
+    {
+        "buyerId": "",
+        "moneyBefore": 0,
+        "moneyAfter": 0
+    }
+}

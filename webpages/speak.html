@@ -1,0 +1,31 @@
+<html>
+<body>
+
+
+<p id="demo"></p>
+
+<button onclick="myFunction(4)">ultrapoggers</button>
+
+<script>
+    function myFunction(a) 
+    {
+        if ('speechSynthesis' in window) 
+        {
+            var msg = new SpeechSynthesisUtterance();
+            msg.text = "SuperCoolNinjaSkills said: wubba lubba dub dub lubba lubba smush dub";
+            msg.voice = window.speechSynthesis.getVoices()[a];
+            window.speechSynthesis.speak(msg);
+            return "Speech Synthesis supported 🎉";
+        }
+        else
+        {
+            return "Speech Synthesis Not Supported 😣";
+        }
+    }
+
+        document.getElementById("demo").innerHTML = myFunction(4, 3);
+</script>
+
+</body>
+
+</html>

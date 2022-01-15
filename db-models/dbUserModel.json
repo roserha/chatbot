@@ -1,0 +1,21 @@
+{
+    "userInfo":
+    {
+        "userChannelId": "",
+        "userChannelName": "",
+        "userPFPURL": ""
+    },
+    "triviaInfo":
+    {
+        "messagesTrivia":
+        {
+            "firstMessageTime": "",
+            "latestMessageTime": "",
+            "messageCount": 1
+        }
+    },
+    "moneyInfo":
+    {
+        "moneyAmount": 0
+    }
+}

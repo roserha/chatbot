@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            body
+            {
+                background-color: #00000000;
+                /*-webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothign: grayscale;
+                text-rendering: optimizeLegibility;*/
+                image-rendering: pixelated;
+            }
+
+            @keyframes anim {
+                0% { bottom: -144px; left: 16px; opacity: 0;}
+                7% { bottom: 16px; left: 16px; opacity: 1;}
+                93% { bottom: 16px; left: 16px; opacity: 1;}
+                100% { bottom: 16px; left: -656px; opacity: 0;}
+            }
+
+            .alert
+            {
+                filter: drop-shadow(-6px 6px 0px #00000021);
+                position: absolute;
+                background-image: url("assets/purchase-alert.png");
+                bottom: 16px;
+                left: 16px;
+                width: 640px;
+                height: 128px;
+                
+                bottom: -144px;
+                opacity: 0;
+                animation-name: anim;
+                animation-duration: 7s;
+                animation-timing-function: cubic-bezier(0.9, 0.32, 0.66, 1.69);
+               
+            }
+
+            .alert img
+            {
+                position: absolute;
+                bottom: 28px;
+                left: 28px;
+            }
+
+            .alert div
+            {
+                font-family: 'EXEPixelPerfect';
+                text-shadow: rgb(81 119 167 / 37%) 1px 1px 1px;
+                padding-left: 118px;
+                padding-right: 32px;
+                position: absolute;
+                top: calc(100% - 115px);
+                
+            }
+
+            .alert h1
+            {
+                line-height: 0;
+                font-size: 235%;
+            }
+
+            .alert p
+            {
+                font-size: 150%;
+                margin-top: -8px;
+                height: 48px;
+                overflow: hidden;
+            }
+
+            .mug::before {
+                content: "\2615 ";
+                font-family: 'EXEPixelPerfect';
+                font-size: 65%;
+            }
+
+            .mug {
+                display: inline-block;
+                font-family: 'EXEPixelPerfect';
+            }
+
+        </style>
+    </head>
+    <body>
+        <audio id="sound"> <source src="/assets/soft-alert.wav" type="audio/wav"> </audio>
+        <div id="alert-holder">
+        </div>
+        <script>
+            let sound = document.getElementById("sound");
+
+            let alertsToShow = [];
+
+            let scrollValue = 0;
+
+            setInterval(updateAnimation, 1000);
+            updateAnimation()
+
+            function updateAnimation()
+            {
+                console.log(`Animation Update Called!`);
+
+                fetch('/p-alerts').then((response) => {
+                    response.json().then((data) => {
+                        data.forEach(element => {
+                            alertsToShow.push(element);
+                        });
+                    });            
+                });
+
+                if(!document.getElementById("alert-holder").innerHTML.match(/[\w+\d+]/g) && alertsToShow.length > 0)
+                {
+                    document.getElementById("alert-holder").innerHTML = 
+                    "<div class='alert'>" +
+                        `<img src='assets/pa-icons/${alertsToShow[0].id}.png' />` +
+                        "<div>" +
+                            `<h1>${alertsToShow[0].title}</h1>` +
+                            `<p id="alertdescription">${alertsToShow[0].description}` + 
+                        "</div>" +
+                    "</div>";
+
+                    sound.play();
+
+                    alertsToShow.shift();
+
+                    scrollValue = -32;
+
+                    setInterval(() => {
+                        try
+                        {
+                            console.log("trying to scroll");
+                            element = document.getElementById("alertdescription");
+                            if(element)
+                            {
+                                scrollValue += (.017 * element.scrollHeight)/5;
+                                element.scrollTop = scrollValue;
+
+                                if(element.scrollTop > 0)
+                                {
+                                    element.style.boxShadow = "inset 0 7px 5px -7px #00000080";
+                                }
+                            }
+                        }
+                        catch(err)
+                        {
+                            console.log(err);
+                        }
+                    }, 17);
+
+                    document.getElementById("alert-holder").firstChild.addEventListener("animationend", resetAnimation, false);
+                }
+            }
+
+            function resetAnimation()
+            {
+                console.log(`Animation Reset Called!`);
+                document.getElementById("alert-holder").innerHTML = "";
+            }
+            // resetAnimation()
+        </script>
+    </body>
+</html>

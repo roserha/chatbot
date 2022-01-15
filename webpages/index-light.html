@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>RickyHBot 🤖 - yt edition</title>
+    </head>
+    <link href="https://fonts.googleapis.com/css?family=Share%20Tech%20Mono" rel="stylesheet">
+    <style>
+        body
+        {
+            font-family: "Share Tech Mono";
+            text-align: center;
+        }
+        button
+        {
+            font-family: "Share Tech Mono";
+        }
+        input
+        {
+            font-family: "Share Tech Mono";
+        }
+
+        @keyframes waves {
+          0% {top: -8px;}
+          50% {top: 8px;}
+          100% {top: -8px;}
+        }
+
+        .title
+        {
+            font-size: 400%;
+            text-shadow: 4px 4px #00000047;
+            animation-name: waves;
+            animation-duration: 6s;
+            animation-iteration-count: infinite;
+            animation-timing-function: cubic-bezier(0.65, 0.05, 0.36, 1);
+            position: absolute;
+            width: 100%;
+            top: -8px;
+        }
+
+        .fancybutton {
+            background-color: cornflowerblue; /* Aquamarine */
+            border: none;
+            color: black;
+            padding: 15px 32px;
+            text-align: center;
+            display: inline-block;
+            font-size: 16px;
+            border-radius: 5px
+        }
+        .fancybutton:hover, .fancybutton:focus {
+            background-color: rgb(133, 170, 238);
+            color: rgb(39, 39, 39);
+        }
+
+        .fancyeditbox
+        {
+            box-shadow:#00000044 0px 0px 6px inset;
+            border: none;
+            border-radius: 4px;
+            padding: 15px 8px;
+            width: 250px;
+        }
+    </style>
+    <body>
+        <h1 class="title">RickyHBot 🤖</h1>
+        <div style="font-size: 200%; width: 100%; position: absolute; line-height: 100%; left:0; top:25vh; text-shadow: 2px 2px 0px #0000001f;">
+            <p>welcome to RickyHBot's house! have some coffee! ☕</p> <br>
+            <!-- <a href="/authorize"> -->
+                <button onclick="location.href='/authorize'" class="fancybutton"> Activate Bot </button>
+            <!-- </a> <br> --> <br> <br>
+            <!-- <a href="/find-active-chat">
+                <button> Get Ricky Horizon's Active Chat </button>
+            </a> <br>
+            <a href="/authorize-rhb">
+                <button> Authorize <b> rickyhbot </b> </button>
+            </a> <br> -->
+            <!-- <a href="/track-chat"> -->
+                <button onclick="location.href='/track-chat'" class="fancybutton"> Track Ricky Horizon's Chat </button>
+            <!-- </a> -->
+            <!-- <a href="/untrack-chat"> -->
+                <button onclick="location.href='/untrack-chat'" class="fancybutton"> Untrack Ricky Horizon's Chat </button>
+            <!-- </a> <br> --> <br> <br>
+            <form method="POST" action="/send-message" style="font-size: 50%">
+                Manually send message: <input type="text" name="message" class="fancyeditbox" />
+                <input type="submit" class="fancybutton"/>
+            </form>
+            <!-- </a> <br> --> <br>
+            <form method="POST" action="/debug-cmds" style="font-size: 50%">
+                Message Simulator: <input type="text" name="message" class="fancyeditbox" />
+                <input type="submit" class="fancybutton"/>
+            </form>
+            <p style="color:cornflowerblue" id="bot-response"></p>
+        </div>
+        <script>
+            var url = window.location.href;
+            if(url.includes("?"))
+            {
+                var params = url.substring(url.indexOf("?")+1).split("&");
+                params.forEach(element => {
+                    let elements = element.split("=");
+                    if (elements[0] == "bot-response")
+                    {
+                        document.getElementById("bot-response").innerText = decodeURIComponent(elements[1]);
+                    }
+                });
+            }
+        </script>
+    </body>
+</html>

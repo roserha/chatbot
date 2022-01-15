@@ -1,0 +1,156 @@
+{
+  "kind": "youtube#liveChatMessageListResponse",
+  "etag": "jCgfyLafz0VvqdESiRCua7rnaX8",
+  "pollingIntervalMillis": 1047,
+  "pageInfo": {
+    "totalResults": 9,
+    "resultsPerPage": 9
+  },
+  "nextPageToken": "GLKCo_KO2O0CIIv5h_uO2O0C",
+  "items": [
+    {
+      "kind": "youtube#liveChatMessage",
+      "etag": "tUE-xrEK4ky5tfdGuelBEgRk1rM",
+      "id": "LCC.CjgKDQoLaGZMM3ZWaUpMYk0qJwoYVUM2SllMSk1kdTNPd2lQclVKU1RlSXZBEgtoZkwzdlZpSkxiTRIcChpDSm5TeTdHSzJPMENGZGl4Z2dvZFAtY0F0dw",
+      "snippet": {
+        "type": "textMessageEvent",
+        "liveChatId": "Cg0KC2hmTDN2VmlKTGJNKicKGFVDNkpZTEpNZHUzT3dpUHJVSlNUZUl2QRILaGZMM3ZWaUpMYk0",
+        "authorChannelId": "UC6JYLJMdu3OwiPrUJSTeIvA",
+        "publishedAt": "2020-12-18T17:43:41.883000Z",
+        "hasDisplayContent": true,
+        "displayMessage": "Hello, World!",
+        "textMessageDetails": {
+          "messageText": "Hello, World!"
+        }
+      }
+    },
+    {
+      "kind": "youtube#liveChatMessage",
+      "etag": "13dJBG7GMf5pRXkHIUKkuCYSNUo",
+      "id": "LCC.CjgKDQoLaGZMM3ZWaUpMYk0qJwoYVUM2SllMSk1kdTNPd2lQclVKU1RlSXZBEgtoZkwzdlZpSkxiTRI5ChpDTi1kZ3NPTTJPMENGWFVUclFZZGlLRUJpQRIbQ00yOThzT0kyTzBDRlI2RGxRSWRnbW9IN1E1",
+      "snippet": {
+        "type": "textMessageEvent",
+        "liveChatId": "Cg0KC2hmTDN2VmlKTGJNKicKGFVDNkpZTEpNZHUzT3dpUHJVSlNUZUl2QRILaGZMM3ZWaUpMYk0",
+        "authorChannelId": "UC6JYLJMdu3OwiPrUJSTeIvA",
+        "publishedAt": "2020-12-18T17:53:15.300000Z",
+        "hasDisplayContent": true,
+        "displayMessage": "!poggers",
+        "textMessageDetails": {
+          "messageText": "!poggers"
+        }
+      }
+    },
+    {
+      "kind": "youtube#liveChatMessage",
+      "etag": "5G6uek_cxfR91ubog6hl_jMaNMo",
+      "id": "LCC.CjgKDQoLaGZMM3ZWaUpMYk0qJwoYVUM2SllMSk1kdTNPd2lQclVKU1RlSXZBEgtoZkwzdlZpSkxiTRI5ChpDSW5rdmNTTTJPMENGV1VIZlFvZDJ3d0hydxIbQ00yOThzT0kyTzBDRlI2RGxRSWRnbW9IN1E2",
+      "snippet": {
+        "type": "textMessageEvent",
+        "liveChatId": "Cg0KC2hmTDN2VmlKTGJNKicKGFVDNkpZTEpNZHUzT3dpUHJVSlNUZUl2QRILaGZMM3ZWaUpMYk0",
+        "authorChannelId": "UC6JYLJMdu3OwiPrUJSTeIvA",
+        "publishedAt": "2020-12-18T17:53:18.373000Z",
+        "hasDisplayContent": true,
+        "displayMessage": ":v",
+        "textMessageDetails": {
+          "messageText": ":v"
+        }
+      }
+    },
+    {
+      "kind": "youtube#liveChatMessage",
+      "etag": "rUKt3CJQeg3-ojtbtVRF5ogqCMw",
+      "id": "LCC.CjgKDQoLaGZMM3ZWaUpMYk0qJwoYVUM2SllMSk1kdTNPd2lQclVKU1RlSXZBEgtoZkwzdlZpSkxiTRI5ChpDUHZ3N3NpTTJPMENGV1VIZlFvZDJ3d0hydxIbQ00yOThzT0kyTzBDRlI2RGxRSWRnbW9IN1E3",
+      "snippet": {
+        "type": "textMessageEvent",
+        "liveChatId": "Cg0KC2hmTDN2VmlKTGJNKicKGFVDNkpZTEpNZHUzT3dpUHJVSlNUZUl2QRILaGZMM3ZWaUpMYk0",
+        "authorChannelId": "UC6JYLJMdu3OwiPrUJSTeIvA",
+        "publishedAt": "2020-12-18T17:53:27.566000Z",
+        "hasDisplayContent": true,
+        "displayMessage": "doesn't work",
+        "textMessageDetails": {
+          "messageText": "doesn't work"
+        }
+      }
+    },
+    {
+      "kind": "youtube#liveChatMessage",
+      "etag": "AxqVjPhGUP5h8lW_LvBVL2p-cCQ",
+      "id": "LCC.CjgKDQoLaGZMM3ZWaUpMYk0qJwoYVUM2SllMSk1kdTNPd2lQclVKU1RlSXZBEgtoZkwzdlZpSkxiTRIcChpDUER6c3FHTjJPMENGWm5PZ2dvZDVnNEFrZw",
+      "snippet": {
+        "type": "textMessageEvent",
+        "liveChatId": "Cg0KC2hmTDN2VmlKTGJNKicKGFVDNkpZTEpNZHUzT3dpUHJVSlNUZUl2QRILaGZMM3ZWaUpMYk0",
+        "authorChannelId": "UC6JYLJMdu3OwiPrUJSTeIvA",
+        "publishedAt": "2020-12-18T17:56:33.230000Z",
+        "hasDisplayContent": true,
+        "displayMessage": "is this poggers?",
+        "textMessageDetails": {
+          "messageText": "is this poggers?"
+        }
+      }
+    },
+    {
+      "kind": "youtube#liveChatMessage",
+      "etag": "E3ayZSNuK3cAlYAHFDeyC2ap8ns",
+      "id": "LCC.CjgKDQoLaGZMM3ZWaUpMYk0qJwoYVUM2SllMSk1kdTNPd2lQclVKU1RlSXZBEgtoZkwzdlZpSkxiTRI5ChpDTWpwMEthTjJPMENGWFVUclFZZGlLRUJpQRIbQ00yOThzT0kyTzBDRlI2RGxRSWRnbW9IN1E4",
+      "snippet": {
+        "type": "textMessageEvent",
+        "liveChatId": "Cg0KC2hmTDN2VmlKTGJNKicKGFVDNkpZTEpNZHUzT3dpUHJVSlNUZUl2QRILaGZMM3ZWaUpMYk0",
+        "authorChannelId": "UC6JYLJMdu3OwiPrUJSTeIvA",
+        "publishedAt": "2020-12-18T17:56:44.206000Z",
+        "hasDisplayContent": true,
+        "displayMessage": "nope, not poggers",
+        "textMessageDetails": {
+          "messageText": "nope, not poggers"
+        }
+      }
+    },
+    {
+      "kind": "youtube#liveChatMessage",
+      "etag": "7Q4sa3YTUGogIX34THLnf6vvJ1Q",
+      "id": "LCC.CjgKDQoLaGZMM3ZWaUpMYk0qJwoYVUM2SllMSk1kdTNPd2lQclVKU1RlSXZBEgtoZkwzdlZpSkxiTRI5ChpDSktLbnVtTjJPMENGZVUyclFZZHlHTUZZURIbQ00yOThzT0kyTzBDRlI2RGxRSWRnbW9IN1E5",
+      "snippet": {
+        "type": "textMessageEvent",
+        "liveChatId": "Cg0KC2hmTDN2VmlKTGJNKicKGFVDNkpZTEpNZHUzT3dpUHJVSlNUZUl2QRILaGZMM3ZWaUpMYk0",
+        "authorChannelId": "UC6JYLJMdu3OwiPrUJSTeIvA",
+        "publishedAt": "2020-12-18T17:59:03.884000Z",
+        "hasDisplayContent": true,
+        "displayMessage": "hol up, lemme try something",
+        "textMessageDetails": {
+          "messageText": "hol up, lemme try something"
+        }
+      }
+    },
+    {
+      "kind": "youtube#liveChatMessage",
+      "etag": "CcPmSuQ3JBWA1S7OR-ZEpsfuVDo",
+      "id": "LCC.CjgKDQoLaGZMM3ZWaUpMYk0qJwoYVUM2SllMSk1kdTNPd2lQclVKU1RlSXZBEgtoZkwzdlZpSkxiTRJFChpDTVhGcnVTTzJPMENGU1Rhd1FvZFVSVUhmQRInQ091OXd0eU8yTzBDRllyQ25Bb2RPTTBHSncxNjA4MzE0NTk5OTgx",
+      "snippet": {
+        "type": "textMessageEvent",
+        "liveChatId": "Cg0KC2hmTDN2VmlKTGJNKicKGFVDNkpZTEpNZHUzT3dpUHJVSlNUZUl2QRILaGZMM3ZWaUpMYk0",
+        "authorChannelId": "UCP4bvjPdeqRVS2JEZzDMALg",
+        "publishedAt": "2020-12-18T18:03:22.103000Z",
+        "hasDisplayContent": true,
+        "displayMessage": "heyy, i'm on my phone",
+        "textMessageDetails": {
+          "messageText": "heyy, i'm on my phone"
+        }
+      }
+    },
+    {
+      "kind": "youtube#liveChatMessage",
+      "etag": "MpSik--entDGuFpt6rEgCu01tbA",
+      "id": "LCC.CjgKDQoLaGZMM3ZWaUpMYk0qJwoYVUM2SllMSk1kdTNPd2lQclVKU1RlSXZBEgtoZkwzdlZpSkxiTRI6ChpDSVdDb19LTzJPMENGZTAyclFZZDc4TUFPQRIcQ00yOThzT0kyTzBDRlI2RGxRSWRnbW9IN1ExMA",
+      "snippet": {
+        "type": "textMessageEvent",
+        "liveChatId": "Cg0KC2hmTDN2VmlKTGJNKicKGFVDNkpZTEpNZHUzT3dpUHJVSlNUZUl2QRILaGZMM3ZWaUpMYk0",
+        "authorChannelId": "UC6JYLJMdu3OwiPrUJSTeIvA",
+        "publishedAt": "2020-12-18T18:03:51.274000Z",
+        "hasDisplayContent": true,
+        "displayMessage": "that took a while lul",
+        "textMessageDetails": {
+          "messageText": "that took a while lul"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  'badge-info': null,
+  badges: { broadcaster: '1', premium: '1' },
+  'client-nonce': '3c4161ddd836268f2fd193b8dc954e0e', [CHANGES]
+  color: null,
+  'display-name': 'horiizyn',
+  emotes: null,
+  flags: null,
+  id: '733beacb-1db0-4ea7-81ad-d99ddadef5da', [CHANGES]
+  mod: false,
+  'room-id': '182425600', [HOST ID]
+  subscriber: false,
+  'tmi-sent-ts': '1610765940254', [CHANGES]
+  turbo: false,
+  'user-id': '182425600', [when putting it in the db, use twitch-182blabla to differentiate]
+  'user-type': null,
+  'emotes-raw': null,
+  'badge-info-raw': null,
+  'badges-raw': 'broadcaster/1,premium/1',
+  username: 'horiizyn',
+  'message-type': 'chat'
+}
