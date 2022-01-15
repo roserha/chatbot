@@ -20,7 +20,15 @@ server.use(express.static(__dirname + '/webpages/assets'));
 server.use('/assets', express.static(__dirname + '/webpages/assets'));
 
 // GET for index file
-server.get("/", (req, res) => res.sendFile(path.join(__dirname + "/webpages/index.html")));
+server.get("/", (req, res) =>
+{
+    if (req.ip != process.env.AUTHORIZED_IP_01 && req.ip != process.env.AUTHORIZED_IP_02) 
+    {
+        console.log(`user ip is: ${req.ip}`)
+        return;
+    }
+    res.sendFile(path.join(__dirname + "/webpages/index.html"))
+});
 
 ///////////////////////////////
 // LOGGING INTO YOUTUBE
@@ -89,6 +97,11 @@ server.get("/turn-off", (req, res) => {
 
 // POST for sending custom messages
 server.post("/send-message", (req, res) => {
+    if (req.ip != process.env.AUTHORIZED_IP_01 && req.ip != process.env.AUTHORIZED_IP_02) 
+    {
+        console.log(`user ip is: ${req.ip}`)
+        return;
+    }
     if(req.body.youtube || req.body.both) 
     {
         console.log('--- Sending message on \x1b[31mYouTube\x1b[0m'); 
@@ -110,6 +123,11 @@ server.post("/send-message", (req, res) => {
 
 // POST for debugging commands without using YouTube data
 server.post("/debug-cmds", (req, res) => {
+    if (req.ip != process.env.AUTHORIZED_IP_01 && req.ip != process.env.AUTHORIZED_IP_02) 
+    {
+        console.log(`user ip is: ${req.ip}`)
+        return;
+    }
     if(req.body.youtube) 
     { 
         console.log('--- Interpreting command as \x1b[31mYouTube\x1b[0m'); 
@@ -177,6 +195,11 @@ server.get("/tts", (req, res) => {
 });
 
 server.get("/launchtts", (req, res) => {
+    if (req.ip != process.env.AUTHORIZED_IP_01 && req.ip != process.env.AUTHORIZED_IP_02) 
+    {
+        console.log(`user ip is: ${req.ip}`)
+        return;
+    }
     exec(`start microsoft-edge:http://localhost:${port}/speech`);
     res.redirect('/');
 });
