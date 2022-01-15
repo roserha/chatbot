@@ -25,7 +25,8 @@ server.get("/", (req, res) =>
     if ((req.socket.remoteAddress != process.env.AUTHORIZED_IP_01 && req.socket.remoteAddress != process.env.AUTHORIZED_IP_02) && 
         (req.headers['x-forwarded-for'] != process.env.AUTHORIZED_IP_01 && req.headers['x-forwarded-for'] != process.env.AUTHORIZED_IP_02))
     {
-        console.log(`user ip is: ${req.headers['x-forwarded-for']} or ${req.socket.remoteAddress}`)
+        console.log(`user ip is: ${req.headers['x-forwarded-for']} or ${req.socket.remoteAddress}`);
+        res.sendFile(path.join(__dirname + "/webpages/invalid-ip.html"));
         return;
     }
     res.sendFile(path.join(__dirname + "/webpages/index.html"))
@@ -101,7 +102,8 @@ server.post("/send-message", (req, res) => {
     if ((req.socket.remoteAddress != process.env.AUTHORIZED_IP_01 && req.socket.remoteAddress != process.env.AUTHORIZED_IP_02) && 
         (req.headers['x-forwarded-for'] != process.env.AUTHORIZED_IP_01 && req.headers['x-forwarded-for'] != process.env.AUTHORIZED_IP_02))
     {
-        console.log(`user ip is: ${req.ip}`)
+        console.log(`user ip is: ${req.headers['x-forwarded-for']} or ${req.socket.remoteAddress}`);
+        res.sendFile(path.join(__dirname + "/webpages/invalid-ip.html"));
         return;
     }
     if(req.body.youtube || req.body.both) 
@@ -128,7 +130,8 @@ server.post("/debug-cmds", (req, res) => {
     if ((req.socket.remoteAddress != process.env.AUTHORIZED_IP_01 && req.socket.remoteAddress != process.env.AUTHORIZED_IP_02) && 
         (req.headers['x-forwarded-for'] != process.env.AUTHORIZED_IP_01 && req.headers['x-forwarded-for'] != process.env.AUTHORIZED_IP_02))
     {
-        console.log(`user ip is: ${req.ip}`)
+        console.log(`user ip is: ${req.headers['x-forwarded-for']} or ${req.socket.remoteAddress}`);
+        res.sendFile(path.join(__dirname + "/webpages/invalid-ip.html"));
         return;
     }
     if(req.body.youtube) 
@@ -201,7 +204,8 @@ server.get("/launchtts", (req, res) => {
     if ((req.socket.remoteAddress != process.env.AUTHORIZED_IP_01 && req.socket.remoteAddress != process.env.AUTHORIZED_IP_02) && 
         (req.headers['x-forwarded-for'] != process.env.AUTHORIZED_IP_01 && req.headers['x-forwarded-for'] != process.env.AUTHORIZED_IP_02))
     {
-        console.log(`user ip is: ${req.ip}`)
+        console.log(`user ip is: ${req.headers['x-forwarded-for']} or ${req.socket.remoteAddress}`);
+        res.sendFile(path.join(__dirname + "/webpages/invalid-ip.html"));
         return;
     }
     exec(`start microsoft-edge:http://localhost:${port}/speech`);
@@ -250,7 +254,7 @@ server.get("/twitch-activate", (req, res) => {
 serverCmds.print = console.log;
 
 server.listen(port, function(){
-    console.log("rickyhbot joined the game");
+    console.log("botfye joined the game");
 });
 
 module.exports = serverCmds;
