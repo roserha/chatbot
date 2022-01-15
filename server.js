@@ -22,9 +22,10 @@ server.use('/assets', express.static(__dirname + '/webpages/assets'));
 // GET for index file
 server.get("/", (req, res) =>
 {
-    if (req.ip != process.env.AUTHORIZED_IP_01 && req.ip != process.env.AUTHORIZED_IP_02) 
+    if ((req.socket.remoteAddress != process.env.AUTHORIZED_IP_01 && req.socket.remoteAddress != process.env.AUTHORIZED_IP_02) && 
+        (req.headers['x-forwarded-for'] != process.env.AUTHORIZED_IP_01 && req.headers['x-forwarded-for'] != process.env.AUTHORIZED_IP_02))
     {
-        console.log(`user ip is: ${req.ip}`)
+        console.log(`user ip is: ${req.headers['x-forwarded-for']} or ${req.socket.remoteAddress}`)
         return;
     }
     res.sendFile(path.join(__dirname + "/webpages/index.html"))
