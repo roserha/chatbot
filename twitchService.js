@@ -62,7 +62,13 @@ twitchService.onMessageReceived = async (target, context, msg, self) =>
     };
 
     let response = await youtubeService.interpret(newMessageJSON);
-    if(response !=  "") { twitchService.sendMessage(response, target); }
+    let msgs = response.split("\n")
+    msgs.forEach(msg => {        
+        if(msg !=  "") 
+        { 
+            twitchService.sendMessage(msg, target); 
+        }
+    });
 };
 
 module.exports = twitchService;
