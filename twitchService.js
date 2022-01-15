@@ -5,10 +5,10 @@ const tmi = require(`tmi.js`);
 const twitchService = {};
 const client = new tmi.client({
     identity: {
-        username: "rickyhbot",
+        username: "botfye",
         password: process.env.TWITCH_BOT_OAUTHTOK
     },
-    channels: ["horiizyn"]
+    channels: [process.env.TWITCH_CHANNEL]
 });
 
 // used to update the twitch button
