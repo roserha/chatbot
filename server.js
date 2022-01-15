@@ -77,6 +77,12 @@ server.get("/untrack-chat", (req, res) => {
     res.redirect("/");
 });
 
+// GET for quitting
+server.get("/turn-off", (req, res) => {
+    res.redirect("/");
+    process.exit(0);
+});
+
 ///////////////////////////////
 // MANUALLY SENDING YT MESSAGES
 ///////////////////////////////
