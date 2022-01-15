@@ -6,7 +6,7 @@ const twitchService = require("./twitchService.js")
 
 
 const server = express();
-const port = 2505;
+const port = process.env.PORT || 2505;
 
 const serverCmds = {};
 
