@@ -176,6 +176,41 @@ server.post("/debug-cmds", (req, res) => {
     if(req.body.twitch) 
     { 
         console.log('--- Interpreting command as \x1b[35mTwitch\x1b[0m'); 
+        const messageToSend = req.body.message;
+        let messageJSON = {
+            "snippet": 
+            { 
+                "type": "textMessageEvent",
+                "authorChannelId": "debugRickyhbotChannelId",
+                "publishedAt": (new Date()).toISOString(),
+                "textMessageDetails": 
+                { 
+                    "messageText" : messageToSend 
+                } 
+            },
+            "authorDetails":
+            {
+                "channelId": "debugRickyhbotChannelId",
+                "displayName": "Message Simulator",
+                "profileImageUrl": "https://docs.mongodb.com/images/mongodb-logo.png",
+                "isVerified": false,
+                "isChatOwner": false,
+                "isChatSponsor": false,
+                "isChatModerator": true
+            }
+        };  
+        /*var responseContent = */youtubeService.interpret(messageJSON, true, res).then(function(responseContent) 
+        {
+            if (responseContent != "")
+            {
+                res.redirect(`/?bot-response=${encodeURIComponent(responseContent)}`);
+                console.log(`--- Responded with "${responseContent}"`);
+            }
+            else
+            {
+                res.redirect("/");
+            }
+        });
     }
 });
 

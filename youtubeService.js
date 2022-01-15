@@ -311,7 +311,7 @@ youtubeService.interpret = async (message, debug=false, responseURL=null) => {
     let messageContent = message.snippet.textMessageDetails.messageText;
     let responseContent = "";
 
-    if(message.authorDetails.channelId == "UCDYKcHPCxSWOABY49EsZLPQ") 
+    if(message.authorDetails.channelId == "UCDYKcHPCxSWOABY49EsZLPQ" || message.authorDetails.channelId == "twitch-botfye") 
     {
         return "";
     }
@@ -347,7 +347,7 @@ youtubeService.interpret = async (message, debug=false, responseURL=null) => {
                     break;
 
                 case "socials":
-                    responseContent = "You can also subscribe to Kohfye on YouTube, or follow him on Twitter, @rickyhorizonyt! , and MAYBE catch some streams (like this one, maybe) on twitch.tv/kohfye!";
+                    responseContent = "You can follow Kohfye on twitch.tv/kohfye and on Twitter @kofye! You can also (MAYBE) catch some videos on YouTube as well!";
                     break;
 
                 case "specs":
@@ -359,11 +359,68 @@ youtubeService.interpret = async (message, debug=false, responseURL=null) => {
                     break;
 
                 case "commands":
+                case "cmds":
                         responseContent = `Check out https://kohfye.glitch.me/commands to see the available commands!`;
                         break;
 
                 case "help":
-                        responseContent = `Hey! I'm Botfye! I'm a custom made bot for Kohfye! Check out https://kohfye.glitch.me/ to see what I can do!`;
+                case "custombot":
+                        responseContent = `Hey! I'm Botfye! I'm a custom bot made for and by Kohfye! Check out https://kohfye.glitch.me/ to see what I can do!\n\nHere are 3 random commands I have:\n\n`;
+                        for(var i = 0; i < 3; i++)
+                        {
+                            var rdmcmd = Math.round(Math.random() * 15);
+                            switch (rdmcmd)
+                            {
+                                case 0:
+                                    responseContent += `!buy <product name> - Purchases something using collected Mugs! For a complete list of products, check out the Coffee Shop!\n`;
+                                    break;
+                                case 1:
+                                    responseContent += `!earnmugs - Tells you a quick way to earn mugs!\n`;
+                                    break;
+                                case 2:
+                                    responseContent += `!guessto10 <number> - Botfye thinks of a number between 1 and 10. If it thinks of your <number>, you'll earn 15!\n`;
+                                    break;
+                                case 3:
+                                    responseContent += `!guessto100 <number> - Botfye thinks of a number between 1 and 100. If it thinks of your <number>, you'll earn 200!\n`;
+                                    break;
+                                case 4:
+                                    responseContent += `!guessto1k <number> - Botfye thinks of a number between 1 and 1000. If it thinks of your <number>, you'll earn 3,000!\n`;
+                                    break;
+                                case 5:
+                                    responseContent += `!mymessages - Tells you how many messages you sent on all livestreams. (Excluding commands)\n`;
+                                    break;
+                                case 6:
+                                    responseContent += `!mymessagesranking - Tells you your position in the Messages Ranking. (People who sent the most messages)\n`;
+                                    break;
+                                case 7:
+                                    responseContent += `!mymugranking - Tells you your position in the Mugs Ranking. (People with the most Mugs)\n`;
+                                    break;
+                                case 8:
+                                    responseContent += `!mymugs - Tells you how many mugs you have.\n`;
+                                    break;
+                                case 9:
+                                    responseContent += `!mytimespan - Tells you how much time passed since your first chat message. (Excluding commands)\n`;
+                                    break;
+                                case 10:
+                                    responseContent += `!rolldice - Rolls a 6-sided die! That's about it. Nothing out of the ordinary. For sure.\n`;
+                                    break;
+                                case 11:
+                                    responseContent += `!socials - It just plugs Kohfye's Twitch, Twitter and YouTube, lol.\n`;
+                                    break;
+                                case 12:
+                                    responseContent += `!specs - If you're curious about Kohfye's setup, this tells his specs. Pretty self-explanatory.\n`;
+                                    break;
+                                case 13:
+                                    responseContent += `!time - Gives Kohfye's local time.\n`;
+                                    break;
+                                case 14:
+                                    responseContent += `!top3messages - Shows the Top 3 People who sent the most messages.\n`;
+                                    break;
+                                case 15:
+                                    responseContent += `!top3mugs - Shows the Top 3 People with the most Mugs.\n`;
+                                    break;
+                            }
+                        }
                         break;
 
                 case "time":
@@ -531,7 +588,7 @@ youtubeService.interpret = async (message, debug=false, responseURL=null) => {
                     else
                     {
                         await rickyDatabase.addMoney(message, 50000);
-                        responseContent =  `@${message.authorDetails.displayName}, your die rolled a... ${randomDie}!? This can't be right... Have 50,000 Mugs of Coffee for the trouble! ☕`;
+                        responseContent =  `@${message.authorDetails.displayName}, your die rolled a... ${randomDie}!? This can't be right... I'm sorry! Take 50,000 Mugs of Coffee! ☕`;
                     }
                     break;
 
@@ -813,8 +870,8 @@ youtubeService.interpret = async (message, debug=false, responseURL=null) => {
                         }
                         else
                         {
-                            await rickyDatabase.addMoney(message, 2000);
-                            responseContent = `WOW!!! I CAN'T BELIEVE THIS!!! @${message.authorDetails.displayName}! I WAS thinking of the number ${guess}! Congrats on your 2,000 Mugs of Coffee! ☕`;
+                            await rickyDatabase.addMoney(message, 3000);
+                            responseContent = `WOW!!! I CAN'T BELIEVE THIS!!! @${message.authorDetails.displayName}! I WAS thinking of the number ${guess}! Congrats on your 3,000 Mugs of Coffee! ☕`;
                         }
                     }
 
