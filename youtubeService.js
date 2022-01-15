@@ -311,7 +311,7 @@ youtubeService.interpret = async (message, debug=false, responseURL=null) => {
     let messageContent = message.snippet.textMessageDetails.messageText;
     let responseContent = "";
 
-    if(message.authorDetails.channelId == "UCDYKcHPCxSWOABY49EsZLPQ" || message.authorDetails.channelId == "twitch-botfye") 
+    if(message.authorDetails.channelId == "UCDYKcHPCxSWOABY49EsZLPQ" || message.authorDetails.channelId == "twitch-550769568") 
     {
         return "";
     }
@@ -360,12 +360,12 @@ youtubeService.interpret = async (message, debug=false, responseURL=null) => {
 
                 case "commands":
                 case "cmds":
-                        responseContent = `Check out https://kohfye.glitch.me/commands to see the available commands!`;
+                        responseContent = `Check out https://botfye.glitch.me/commands to see the available commands!`;
                         break;
 
                 case "help":
                 case "custombot":
-                        responseContent = `Hey! I'm Botfye! I'm a custom bot made for and by Kohfye! Check out https://kohfye.glitch.me/ to see what I can do!\n\nHere are 3 random commands I have:\n\n`;
+                        responseContent = `Hey! I'm Botfye! I'm a custom bot made for and by Kohfye! Check out https://botfye.glitch.me/ to see what I can do!\n\nHere are 3 random commands I have:\n\n`;
                         for(var i = 0; i < 3; i++)
                         {
                             var rdmcmd = Math.round(Math.random() * 15);
@@ -845,23 +845,23 @@ youtubeService.interpret = async (message, debug=false, responseURL=null) => {
 
                             if(difference == 1)
                             {
-                                rickyDatabase.addMoney(message, 10);
-                                responseContent = `ARE YOU KIDDING ME!?!? @${message.authorDetails.displayName}, I tought of ${numberThought}! 1 off! That's rough... Have 10 pity Mugs... ☕`;
+                                rickyDatabase.addMoney(message, 100);
+                                responseContent = `NOOO ! @${message.authorDetails.displayName}, I tought of ${numberThought}! 1 off! That's rough... Have 100 pity Mugs... ☕`;
                             }
                             else if(difference < 5)
                             {
-                                rickyDatabase.addMoney(message, 5);
-                                responseContent = ` Gahh!! @${message.authorDetails.displayName}, I was thinking of ${numberThought}! Have 5 pity Mugs... ☕`;
+                                rickyDatabase.addMoney(message, 50);
+                                responseContent = ` Gahh!! @${message.authorDetails.displayName}, I was thinking of ${numberThought}! Have 50 pity Mugs... ☕`;
                             }
                             else if(difference < 10)
                             {
-                                rickyDatabase.addMoney(message, 2);
-                                responseContent = `Oh no, so close... @${message.authorDetails.displayName}, I was thinking of the number ${numberThought}... Have 2 pity Mugs... ☕`;
+                                rickyDatabase.addMoney(message, 20);
+                                responseContent = `Oh no, so close... @${message.authorDetails.displayName}, I was thinking of the number ${numberThought}... Have 20 pity Mugs... ☕`;
                             }
                             else if(difference < 50)
                             {
-                                rickyDatabase.addMoney(message, 1);
-                                responseContent = `Ohhh, sorry @${message.authorDetails.displayName}, I was thinking of the number ${numberThought}. Have a pity Mug... ☕`;
+                                rickyDatabase.addMoney(message, 10);
+                                responseContent = `Ohhh, sorry @${message.authorDetails.displayName}, I was thinking of the number ${numberThought}. Have 10 pity Mugs... ☕`;
                             }
                             else
                             {
@@ -886,7 +886,7 @@ youtubeService.interpret = async (message, debug=false, responseURL=null) => {
 
                     if(!productsToBuy[itemToPurchase]) 
                     { 
-                        responseContent = `@${message.authorDetails.displayName}, for a list of products, go to https://kohfye.glitch.me/shop`; 
+                        responseContent = `@${message.authorDetails.displayName}, for a list of products, go to https://botfye.glitch.me/shop`; 
                         break;
                     }
 

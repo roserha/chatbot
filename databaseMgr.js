@@ -99,6 +99,45 @@ const checkUser = async (message) =>
             console.log(`--! Error when creating user: ${err}`);
         }
     }
+    else
+    {
+        console.log("--- They aren't new. Did they change their name?");
+
+        const options = {
+            projection: { "userInfo.userChannelName": 1 }
+        };
+
+        const query = 
+        { 
+            'userInfo.userChannelId': message.authorDetails.channelId 
+        };
+
+        const dbResB = await userInfoCollection.findOne(query, options);
+
+        if(dbResB.userInfo.userChannelName != message.authorDetails.displayName)
+        {
+            console.log(`--- Yes! Let's update their name. (${dbResB.userInfo.userChannelName} vs ${message.authorDetails.displayName})`);
+
+            const updateDoc = 
+            {
+                "$set":
+                {
+                    "userInfo.userChannelName": message.authorDetails.displayName
+                }
+            };
+    
+            const query = 
+            { 
+                'userInfo.userChannelId': message.authorDetails.channelId 
+            };
+    
+            const dbResC = await userInfoCollection.updateOne(query, updateDoc);
+        }
+        else
+        {
+            console.log("--- Nah. It's alls good!");
+        }
+    }
 };
 
 // Sees if user exists
@@ -376,7 +415,7 @@ rickyDatabase.newMessage = async (messageArray) =>
         let messageLen = (messageArray.snippet.textMessageDetails.messageText.length);
         let moneyToAdd = Math.ceil(3840/(1856+((-80+messageLen)*messageLen)));
 
-        console.log(`--- Giving ${moneyToAdd} cookies!`)
+        console.log(`--- Giving ${moneyToAdd} Mugs!`)
 
         const updateDoc = 
         {
