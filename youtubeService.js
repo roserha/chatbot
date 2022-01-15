@@ -113,16 +113,16 @@ const checkTokens = async () => {
         if(tokens)
         {
             auth.setCredentials(tokens);
-            console.log("--- Tokens set for Ricky!")
+            console.log("--- Tokens set for Kohfye!")
         }
         else
         {
-            console.log("--- No tokens set for Ricky!")
+            console.log("--- No tokens set for Kohfye!")
         }
     }
     catch
     {
-        console.log("--! Couldn't read Ricky's token! Did he log in?")
+        console.log("--! Couldn't read Kohfye's token! Did he log in?")
     }
     try
     {
@@ -130,16 +130,16 @@ const checkTokens = async () => {
         if(tokensrhb)
         {
             authRHB.setCredentials(tokensrhb);
-            console.log("--- Tokens set for rickyhbot!")
+            console.log("--- Tokens set for kohfye!")
         }
         else
         {
-            console.log("--- No tokens set for rickyhbot!")
+            console.log("--- No tokens set for kohfye!")
         }
     } 
     catch
     {
-        console.log("--! Couldn't read rickyhbot's token! Did he log in?")
+        console.log("--! Couldn't read kohfye's token! Did he log in?")
     }
 };
 
@@ -284,19 +284,19 @@ youtubeService.interpret = async (message, debug=false, responseURL=null) => {
         {
             "itemName": "Glass of Water",
             "itemPrice": 1000,
-            "itemBoughtMessage": `Hey ${message.twitch ? "@horiizyn" : "@Ricky Horizon"}, have a glass of water, courtesy of @USERNAME!`
+            "itemBoughtMessage": `Hey ${message.twitch ? "@kohfye" : "@Kohfye"}, have a glass of water, courtesy of @USERNAME!`
         },
         "star glasses":
         {
             "itemName": "Star Glasses",
             "itemPrice": 0,
-            "itemBoughtMessage": `${message.twitch ? "@horiizyn" : "@Ricky Horizon"}, @USERNAME bought some star glasses for you to wear!`
+            "itemBoughtMessage": `${message.twitch ? "@kohfye" : "@Kohfye"}, @USERNAME bought some star glasses for you to wear!`
         },
         "coffee" : 
         {
             "itemName": "Mug of Coffee",
             "itemPrice": 5000,
-            "itemBoughtMessage": `Oh ${message.twitch ? "@horiizyn" : "@Ricky Horizon"}, @USERNAME gave his Mugs of Coffee to you! Drink up!`
+            "itemBoughtMessage": `Oh ${message.twitch ? "@kohfye" : "@Kohfye"}, @USERNAME gave his Mugs of Coffee to you! Drink up!`
         },
         "tts" :
         {
@@ -341,17 +341,17 @@ youtubeService.interpret = async (message, debug=false, responseURL=null) => {
         case "!":
             switch(messageCommand)
             {
-                // General stream/Ricky info commands
+                // General stream/Kohfye info commands
                 case "rules":
                     responseContent = "The main rule is to not be an all-around unpleasant person. So that means not insulting anyone in chat, or saying something purposefully hurtful. Also, avoid spamming!";
                     break;
 
                 case "socials":
-                    responseContent = "You can also subscribe to Ricky Horizon on YouTube, or follow him on Twitter, @rickyhorizonyt! , and MAYBE catch some streams (like this one, maybe) on twitch.tv/horiizyn!";
+                    responseContent = "You can also subscribe to Kohfye on YouTube, or follow him on Twitter, @rickyhorizonyt! , and MAYBE catch some streams (like this one, maybe) on twitch.tv/kohfye!";
                     break;
 
                 case "specs":
-                    responseContent = `Ricky has a 2019 Acer Predator Helios 300 laptop! It has an i7 9750H, a GTX 1660 Ti, and 16 GB of 2667 MHz RAM!`;
+                    responseContent = `Kohfye has a 2019 Acer Predator Helios 300 laptop! It has an i7 9750H, a GTX 1660 Ti, and 16 GB of 2667 MHz RAM!`;
                     break;
 
                 case "earnmugs":
@@ -359,11 +359,11 @@ youtubeService.interpret = async (message, debug=false, responseURL=null) => {
                     break;
 
                 case "commands":
-                        responseContent = `Check out https://rickyhbot.glitch.me/commands to see the available commands!`;
+                        responseContent = `Check out https://kohfye.glitch.me/commands to see the available commands!`;
                         break;
 
                 case "help":
-                        responseContent = `Hey! I'm RickyHBot! I'm a custom made bot for Ricky! Check out https://rickyhbot.glitch.me/ to see what I can do!`;
+                        responseContent = `Hey! I'm Botfye! I'm a custom made bot for Kohfye! Check out https://kohfye.glitch.me/ to see what I can do!`;
                         break;
 
                 case "time":
@@ -371,7 +371,7 @@ youtubeService.interpret = async (message, debug=false, responseURL=null) => {
 
                     const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
 
-                    responseContent = `Where Ricky lives, it's currently ${currentDate.toLocaleDateString('en-US', options)}, ${currentDate.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' })}`;
+                    responseContent = `Where Kohfye lives, it's currently ${currentDate.toLocaleDateString('en-US', options)}, ${currentDate.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' })}`;
                     break;
 
                 case "top3mugs":
@@ -829,7 +829,7 @@ youtubeService.interpret = async (message, debug=false, responseURL=null) => {
 
                     if(!productsToBuy[itemToPurchase]) 
                     { 
-                        responseContent = `@${message.authorDetails.displayName}, for a list of products, go to https://rickyhbot.glitch.me/shop`; 
+                        responseContent = `@${message.authorDetails.displayName}, for a list of products, go to https://kohfye.glitch.me/shop`; 
                         break;
                     }
 
@@ -902,7 +902,7 @@ youtubeService.processPurchase = async (purchaseObject) => {
             console.log(PAlerts);
             PAlerts.push({
                 title: `<i>'Water'</i> you drinking?`,
-                description: `<b>${purchaseObject.displayName}</b> told Ricky to drink some water for <mug class="mug">${purchaseObject.itemPrice}</mug>!`,
+                description: `<b>${purchaseObject.displayName}</b> told Kohfye to drink some water for <mug class="mug">${purchaseObject.itemPrice}</mug>!`,
                 id: "water"
             });
             break;
@@ -912,7 +912,7 @@ youtubeService.processPurchase = async (purchaseObject) => {
             console.log(PAlerts);
             PAlerts.push({
                 title: `How does this even work?`,
-                description: `<b>${purchaseObject.displayName}</b> gave Ricky a mug of coffee for <mug class="mug">${purchaseObject.itemPrice}</mug>! How that works is beyond me...`,
+                description: `<b>${purchaseObject.displayName}</b> gave Kohfye a mug of coffee for <mug class="mug">${purchaseObject.itemPrice}</mug>! How that works is beyond me...`,
                 id: "coffee"
             });
             break;
@@ -922,7 +922,7 @@ youtubeService.processPurchase = async (purchaseObject) => {
             console.log(PAlerts);
             PAlerts.push({
                 title: `<i>Star</i>-t wearing this!`,
-                description: `<b>${purchaseObject.displayName}</b> gave Ricky some star glasses to wear, for <mug class="mug">${purchaseObject.itemPrice}</mug>! Nice!`,
+                description: `<b>${purchaseObject.displayName}</b> gave Kohfye some star glasses to wear, for <mug class="mug">${purchaseObject.itemPrice}</mug>! Nice!`,
                 id: "coffee"
             });
             writeFilePromise(byteCamPath + "accessories.json", JSON.stringify({accessory: "star-glasses", purchaseTime: new Date()}));
