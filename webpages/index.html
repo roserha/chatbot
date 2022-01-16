@@ -121,26 +121,31 @@
                 <button> Authorize <b> rickyhbot </b> </button>
             </a> <br> -->
             <!-- <a href="/track-chat"> -->
-                <button onclick="location.href='/track-chat'" class="fancybutton"> Track Botfye's Chat (YT)</button>
+                <button onclick="location.href='/track-chat'" class="fancybutton"> Track Kohfye's Chat (YT)</button>
             <!-- </a> -->
             <!-- <a href="/untrack-chat"> -->
-                <button onclick="location.href='/untrack-chat'" class="fancybutton"> Untrack Botfye's Chat (YT)</button>
+                <button onclick="location.href='/untrack-chat'" class="fancybutton"> Untrack Kohfye's Chat (YT)</button>
                 <!-- </a> <br> --> <br> <br>
                 <form method="POST" action="/send-message" style="font-size: 50%">
                     Manually send message: <input type="text" name="message" class="fancyeditbox" />
-                    <input type="submit" class="fancybuttonYT" value="Send on YouTube" name="youtube"/>
-                    <input type="submit" class="fancybuttonTW" value="Send on Twitch"  name="twitch"/>
+                    <input type="submit" class="fancybuttonYT" value="Send (YT)" name="youtube"/>
+                    <input type="submit" class="fancybuttonTW" value="Send (TW)"  name="twitch"/>
                     <input type="submit" class="fancybutton" value="Send on Both"  name="both"/>
                 </form>
                 <!-- </a> <br> --> <br>
                 <form method="POST" action="/debug-cmds" style="font-size: 50%">
                     Message Simulator: <input type="text" name="message" class="fancyeditbox" maxlength="200"/>
                     <!-- <input type="submit" class="fancybutton"/> -->
-                    <input type="submit" class="fancybuttonYT" value="Simulate YouTube" name="youtube"/>
-                    <input type="submit" class="fancybuttonTW" value="Simulate Twitch"  name="twitch"/>
+                    <input type="submit" class="fancybuttonYT" value="Simulate (YT)" name="youtube"/>
+                    <input type="submit" class="fancybuttonTW" value="Simulate (TW)"  name="twitch"/>
                 </form>
                 <br>
-                <button onclick="location.href='/launchtts'" class="fancybutton"> Open TTS Interface </button> <br> <br>
+                <!-- <button onclick="location.href='/launchtts'" class="fancybutton"> Open TTS Interface </button> <br> <br> -->
+                <div id="ttsoff" style="display: block"> <button onclick="openTTS()" class="fancybutton"> Open TTS Interface </button> <br> <br> </div>
+                <div id="ttson" style="display: none"> 
+                    <iframe id="ttsinterface" src="/speech" title="tts interface"></iframe>
+                    <div id="ttsoff"> <button onclick="closeTTS()" class="fancybutton"> Close TTS Interface </button> <br> <br> </div>
+                </div>
                 <button onclick="location.href='/turn-off'" class="fancybuttonYT"> Turn Bot Off </button>
             <p style="color: #4172ca" id="bot-response"></p>
         </div>
@@ -173,6 +178,21 @@
             }
             updateButtons();
             setInterval(updateButtons, 1000);
+
+            function openTTS()
+            {
+                document.getElementById("ttsoff").style.display = "none";
+                document.getElementById("ttson").style.display = "block";
+            }
+
+            function closeTTS()
+            {
+                document.getElementById("ttsoff").style.display = "block";
+                document.getElementById("ttson").style.display = "none";
+
+                var iframe = document.getElementById("ttsinterface");
+                iframe.src = iframe.src;
+            }
         </script>
     </body>
 </html>
