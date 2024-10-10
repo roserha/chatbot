@@ -5,7 +5,7 @@ const tmi = require(`tmi.js`);
 const twitchService = {};
 const client = new tmi.client({
     identity: {
-        username: "botfye",
+        username: "exampleBot",
         password: process.env.TWITCH_BOT_OAUTHTOK
     },
     channels: [process.env.TWITCH_CHANNEL]
